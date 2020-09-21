@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>기존 웹 개발 방식(HTML, JavaScript)</title>
+</head>
+<body>
+  <!-- HTML은 화면에 나타나는 태그, DOM에 정보를 입력하는 것이고, Javascript는 해당 태그나 DOM의 내용을 조작하는 것이라고 볼 수 있지 -->
+  <div id="app"></div>
+
+  <script>
+    var div = document.querySelector('#app'); //jQuery에서 $('#app'); 부분
+    var str = 'hello world';
+    div.innerHTML = str;
+
+    str = 'hello world!!!' // str을 'hello world!!!'로 수정해도 화면에 반영되지 않음
+    div.innerHTML = str; // 그래서 해당 태그에 바뀐 문자열의 정보를 다시 대입해줘야 마지막으로 갱신된 정보를 화면에 출력함
+</script>
+</body>
+</html>
