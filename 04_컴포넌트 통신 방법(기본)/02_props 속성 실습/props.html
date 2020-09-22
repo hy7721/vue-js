@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>props 속성 실습</title>
+</head>
+<body>
+  <div id="app">
+    <!-- <app-header v-bind:프롭스 속성 이름="상위 컴포넌트의 데이터 이름"></app-header> -->
+    <app-header v-bind:propsdata="message"></app-header>
+    <app-content v-bind:propsnum="num"></app-content>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var appHeader = {
+      template: '<h1>{{ propsdata }}</h1>',
+      props: ['propsdata']
+    }
+
+    var appContent = {
+      template: '<div>{{ propsnum }}</div>',
+      props: ['propsnum'] // propsdata라고 적어도 됨. 유효범위 떄문에 상관없음.
+    }
+    new Vue({
+      el: '#app',
+      components: {
+        'app-header': appHeader,
+        'app-content': appContent
+      },
+      data: {
+        // Root Components에서 관리하는 데이터지
+        message: 'hi',
+        num: 10
+      }
+    });
+
+    // 정답
+    // var appHeader = {
+    //   template: '<h1>{{ propsdata }}</h1>',
+    //   props: ['propsdata']
+    // }
+    // var appContent = {
+    //   template: '<div>{{ propsdata }}</div>',
+    //   props: ['propsdata']
+    // }
+
+    // new Vue({
+    //   el: '#app',
+    //   components: {
+    //     'app-header': appHeader,
+    //     'app-content': appContent
+    //   },
+    //   data: {
+    //     message: 'hi',
+    //     num: 10
+    //   }
+    // })
+  </script>
+</body>
+</html>
